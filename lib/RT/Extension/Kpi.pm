@@ -1,12 +1,9 @@
-use strict;
-use warnings;
 package RT::Extension::Kpi;
-
 
 use Exporter qw( import );
 @EXPORT_OK = qw( RelevantTxns );
 
-our $VERSION = '0.01';
+our $VERSION = '1.09';
 
 RT->AddStyleSheets('activity-reports.css');
 
@@ -82,12 +79,14 @@ sub RelevantTxns {
     my $txns = $ticket->Transactions;
     $txns->Limit(FIELD => 'Created', OPERATOR => '>=', VALUE => $args{start});
     $txns->Limit(FIELD => 'Created', OPERATOR => '<=', VALUE => $args{end});
+	$txns->Limit(FIELD => 'Type', VALUE => 'Set', ENTRYAGGREGATOR => 'OR');
+    #$txns->Limit(FIELD => 'Type', VALUE => 'Status', ENTRYAGGREGATOR => 'OR');
     if( $args{timed} ) {
 	# Limit to transactions with positive time taken.
         $txns->Limit(FIELD => 'TimeTaken', OPERATOR => '>=', VALUE => 1); 
     } else {
 	# Include status changes and ticket creations.
-	$txns->Limit(FIELD => 'Type', VALUE => 'Status', ENTRYAGGREGATOR => 'OR');
+	#$txns->Limit(FIELD => 'Type', VALUE => 'Status', ENTRYAGGREGATOR => 'OR');
 	$txns->Limit(FIELD => 'Type', VALUE => 'Create', ENTRYAGGREGATOR => 'OR');
     }
     # Comment/correspond type transactions are always relevant.
@@ -96,5 +95,6 @@ sub RelevantTxns {
 
     return $txns;
 }
+
 
 1;

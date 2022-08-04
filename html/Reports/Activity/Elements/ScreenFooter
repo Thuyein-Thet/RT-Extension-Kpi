@@ -1,4 +1,4 @@
-<& LimitReport, %ARGS &>
+
 % if ($show_print_link) {
 <div align="right">
 % my %printable_args = %ARGS;

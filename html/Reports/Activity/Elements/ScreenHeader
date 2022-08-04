@@ -6,3 +6,4 @@ $path => undef
 <& Tabs,
     current_subtab => $path,
     Title => $title &> 
+<& LimitReport, %ARGS &>

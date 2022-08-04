@@ -1,19 +1,331 @@
-<& MiniPlot, data => \%counts &>
-
 <table style="width: 100%">
 <tr class="titlerow">
-<th>Queue</th><th>Activity</th><th>Date</th><th>Time</th><th>Ticket #</th><th>User</th><th>Short description</th>
+<th>Transaction ID</th>
+<th>Ticket ID</th>
+<th>Queue From</th>
+<th>Queue To</th>
+<th>Created Date</th>
+<th>Created Time</th>
+<th>Transfer Date</th>
+<th>Transfer Time</th>
+<th>Duration</th>
+<th>Short description</th>
 </tr>
+% my $firstYear;
+% my $lastYear;
+% my $lockTotalTime=0;
+% my $lock;
+% my $lockQueue=0;
+% my $firstMonth;
+% my $lastMonth;
+% my $firstDate;
+% my $firstDay;
+% my $lockDay;
+% my $tranDate;
+% my $tranDay;
+% my $firstTotal;
+% my $secondTotal;
+% my $lastTotal;
+% my $firstTime;
+% my $secondTime;
+% my $lastTime;
+% my $index=1;
+% my $lockIndex;
+% my $totalDay;
+% my $lockMonth;
+% my $lockCreateTime;
+% my $lockCreateDate;
 % for my $item (@items) {
+% if ($item->{type} eq 'Create') {
+%# $lockTotal=0;
+% $firstTime = $item->{createTime};
+% $firstDate = $item->{createDate};
+% $firstDay = substr( $firstDate,-2);
+% $firstYear = substr($item->{createDate},0,4);
+% my @spl=split(':',$firstTime);
+% $firstMonth = substr($item->{createDate},5,2);
+% $lockMonth = $firstMonth;
+% my $hr=$spl[0]*3600;
+% my $min=$spl[1]*60;
+% my $sec=$spl[2];
+% $firstTotal=$hr+$min+$sec;
+% $lock=$item->{id};
+% $lockCreateTime = $item->{createTime};
+% $lockCreateDate = $item->{createDate};
+% }        
+% if (!index($item->{notes},"Queue changed")) {
 <tr>
-<td><% $item->{queue} %></td>
-<td><% $item->{status} %></td>
-<td><% $item->{date} %></td>
-<td><% $item->{time} %></td>
+
+% $lastYear = substr($item->{trsfrDate},0,4);
+% $tranDate = $item->{trsfrDate};
+% $tranDay=substr( $tranDate,-2);
+% $lastTime = $item->{trsfrTime};
+% my @spl=split(':',$lastTime);
+% $lastMonth = substr($item->{trsfrDate},5,2);
+% my $hr=$spl[0]*3600;
+% my $min=$spl[1]*60;
+% my $sec=$spl[2];
+% $lastTotal=$hr+$min+$sec;
+
+
+<td><% $item->{tid} %></td>
 <td><% $item->{id} %></td>
-<td><% $item->{actor} %></td>
+
+% if($item->{fromq} eq 14 ) {
+<td><% "CS-Viber" %></td>
+% } elsif ($item->{fromq} eq 1 ) {
+<td><% "General" %></td>
+% } elsif ($item->{fromq} eq 5 ) {
+<td><% "Admin" %></td>
+% } elsif ($item->{fromq} eq 6 ) {
+<td><% "BC-SbS" %></td>
+% } elsif ($item->{fromq} eq 7 ) {
+<td><% "Commander-DIA" %></td>
+% } elsif ($item->{fromq} eq 8 ) {
+<td><% "Commander-SbS" %></td>
+% } elsif ($item->{fromq} eq 9 ) {
+<td><% "CPEOps" %></td>
+% } elsif ($item->{fromq} eq 10 ) {
+<td><% "CPE-SbS" %></td>
+% } elsif ($item->{fromq} eq 11 ) {
+<td><% "CS-Bz" %></td>
+% } elsif ($item->{fromq} eq 12 ) {
+<td><% "CS-SbS (Inbound)" %></td>
+% } elsif ($item->{fromq} eq 13 ) {
+<td><% "CS-SbS-Finance" %></td>
+% } elsif ($item->{fromq} eq 14 ) {
+<td><% "CS-Viber" %></td>
+% } elsif ($item->{fromq} eq 15 ) {
+<td><% "Customer Support" %></td>
+% } elsif ($item->{fromq} eq 16 ) {
+<td><% "DevOps" %></td>
+% } elsif ($item->{fromq} eq 17 ) {
+<td><% "DIA Finance" %></td>
+% } elsif ($item->{fromq} eq 18 ) {
+<td><% "Enterprise IT" %></td>
+% } elsif ($item->{fromq} eq 19 ) {
+<td><% "ERP Support" %></td>
+% } elsif ($item->{fromq} eq 20 ) {
+<td><% "FiberImpl" %></td>
+% } elsif ($item->{fromq} eq 21 ) {
+<td><% "FiberOps" %></td>
+% } elsif ($item->{fromq} eq 22 ) {
+<td><% "FIberW" %></td>
+% } elsif ($item->{fromq} eq 23 ) {
+<td><% "FiberWOps" %></td>
+% } elsif ($item->{fromq} eq 24 ) {
+<td><% "FieldOps-Infra" %></td>
+% } elsif ($item->{fromq} eq 25 ) {
+<td><% "FieldOps-SbS" %></td>
+% } elsif ($item->{fromq} eq 26 ) {
+<td><% "Finance-Ops" %></td>
+% } elsif ($item->{fromq} eq 27 ) {
+<td><% "FTTx-Ops" %></td>
+% } elsif ($item->{fromq} eq 28 ) {
+<td><% "LANOps" %></td>
+% } elsif ($item->{fromq} eq 29 ) {
+<td><% "Network Operation Center" %></td>
+% } elsif ($item->{fromq} eq 30 ) {
+<td><% "Network Planning" %></td>
+% } elsif ($item->{fromq} eq 31 ) {
+<td><% "NOC-SbS" %></td>
+% } elsif ($item->{fromq} eq 32 ) {
+<td><% "QC-Wireless" %></td>
+% } elsif ($item->{fromq} eq 33 ) {
+<td><% "Store-SbS" %></td>
+% } elsif ($item->{fromq} eq 34 ) {
+<td><% "Dev Team" %></td>
+% } elsif ($item->{fromq} eq 35 ) {
+<td><% "Sales Insurance" %></td>
+% } elsif ($item->{fromq} eq 36 ) {
+<td><% "DF Ops" %></td>
+% } else {
+<td><% $item->{fromq} %></td>
+% }
+
+% if($item->{toq} eq 14 ) {
+<td><% "CS-Viber" %></td>
+% } elsif ($item->{toq} eq 5 ) {
+<td><% "Admin" %></td>
+% } elsif ($item->{toq} eq 6 ) {
+<td><% "BC-SbS" %></td>
+% } elsif ($item->{toq} eq 7 ) {
+<td><% "Commander-DIA" %></td>
+% } elsif ($item->{toq} eq 8 ) {
+<td><% "Commander-SbS" %></td>
+% } elsif ($item->{toq} eq 9 ) {
+<td><% "CPEOps" %></td>
+% } elsif ($item->{toq} eq 10 ) {
+<td><% "CPE-SbS" %></td>
+% } elsif ($item->{toq} eq 11 ) {
+<td><% "CS-Bz" %></td>
+% } elsif ($item->{toq} eq 12 ) {
+<td><% "CS-SbS (Inbound)" %></td>
+% } elsif ($item->{toq} eq 13 ) {
+<td><% "CS-SbS-Finance" %></td>
+% } elsif ($item->{toq} eq 14 ) {
+<td><% "CS-Viber" %></td>
+% } elsif ($item->{toq} eq 15 ) {
+<td><% "Customer Support" %></td>
+% } elsif ($item->{toq} eq 16 ) {
+<td><% "DevOps" %></td>
+% } elsif ($item->{toq} eq 17 ) {
+<td><% "DIA Finance" %></td>
+% } elsif ($item->{toq} eq 18 ) {
+<td><% "Enterprise IT" %></td>
+% } elsif ($item->{toq} eq 19 ) {
+<td><% "ERP Support" %></td>
+% } elsif ($item->{toq} eq 20 ) {
+<td><% "FiberImpl" %></td>
+% } elsif ($item->{toq} eq 21 ) {
+<td><% "FiberOps" %></td>
+% } elsif ($item->{toq} eq 22 ) {
+<td><% "FIberW" %></td>
+% } elsif ($item->{toq} eq 23 ) {
+<td><% "FiberWOps" %></td>
+% } elsif ($item->{toq} eq 24 ) {
+<td><% "FieldOps-Infra" %></td>
+% } elsif ($item->{toq} eq 25 ) {
+<td><% "FieldOps-SbS" %></td>
+% } elsif ($item->{toq} eq 26 ) {
+<td><% "Finance-Ops" %></td>
+% } elsif ($item->{toq} eq 27 ) {
+<td><% "FTTx-Ops" %></td>
+% } elsif ($item->{toq} eq 28 ) {
+<td><% "LANOps" %></td>
+% } elsif ($item->{toq} eq 29 ) {
+<td><% "Network Operation Center" %></td>
+% } elsif ($item->{toq} eq 30 ) {
+<td><% "Network Planning" %></td>
+% } elsif ($item->{toq} eq 31 ) {
+<td><% "NOC-SbS" %></td>
+% } elsif ($item->{toq} eq 32 ) {
+<td><% "QC-Wireless" %></td>
+% } elsif ($item->{toq} eq 33 ) {
+<td><% "Store-SbS" %></td>
+% } elsif ($item->{toq} eq 34 ) {
+<td><% "Dev Team" %></td>
+% } elsif ($item->{toq} eq 35 ) {
+<td><% "Sales Insurance" %></td>
+% } elsif ($item->{toq} eq 36 ) {
+<td><% "DF Ops" %></td>
+% } else {
+<td><% $item->{toq} %></td>
+% }
+
+% if($lockCreateTime){
+% $item->{createTime} = $lockCreateTime;
+% $item->{createDate} = $lockCreateDate;
+<td><% $item->{createDate} %></td>
+<td><% $item->{createTime} %></td>
+% }
+
+<td><% $item->{trsfrDate} %></td>
+<td><% $item->{trsfrTime} %></td>
+
+
+%#------------------------------------------------------------ Duration -------------------------------------------------
+% if ($firstYear ne $lastYear) {
+% $lastMonth = $lastMonth+12;
+% }
+
+% if ($firstMonth ne $lastMonth) {
+
+% if ($lockTotalTime ne 0) {
+% $totalDay = ($tranDay-$firstDay+(31*($lastMonth-$firstMonth)))*86400;
+% my $total = $lastTotal-$lockTotalTime+$totalDay;  
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+        <td><% $hr.":".$min.":".$sec %></td>
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% } else {
+% $totalDay = ($tranDay-$firstDay+(31*($lastMonth-$firstMonth)))*86400;
+% my $total = ($lastTotal+$totalDay)-$firstTotal;
+
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+        <td><% $hr.":".$min.":".$sec %></td>
+% }    
+
+% } else {
+
+% if ($lockTotalTime ne 0) {
+% $totalDay = ($tranDay-$firstDay)*86400;
+% my $total = $lastTotal-$lockTotalTime+$totalDay;  
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+        <td><% $hr.":".$min.":".$sec %></td>
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% } else {
+% $totalDay = ($tranDay-$firstDay)*86400;
+% my $total = ($lastTotal+$totalDay)-$firstTotal;
+
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+        <td><% $hr.":".$min.":".$sec %></td>
+% } 
+% }
+
+% if ($item->{id} eq $items[$index]->{id}) {
+% $firstTime = $item->{trsfrTime};
+% $firstDate = $item->{trsfrDate};
+% $firstYear = substr($item->{trsfrDate},0,4);
+% $firstDay = substr( $firstDate,-2);
+% my @spl=split(':',$firstTime);
+% $firstMonth = substr($item->{trsfrDate},5,2);
+% $lockMonth = $firstMonth;
+% my $hr=$spl[0]*3600;
+% my $min=$spl[1]*60;
+% my $sec=$spl[2];
+% $firstTotal=$hr+$min+$sec;
+% }
+
+%#-------------------------------------------------------------End-------------------------------------------------------
+
+% #86400sec in a day 
+
+
 <td><% $item->{notes} %></td>
+
+
+%# if($item->{type} eq 'Create'){
+<!--<td><% $lockDay %></td>-->
+%# } else {
+<!--<td><% $tranDay %></td>-->
+%# }
+<!--<td><% $firstMonth %></td>-->
+<!--<td><% $lastMonth %></td>-->
+
+
 </tr>
+% }
+% $index++;
 % }
 </table>
 
@@ -24,8 +336,11 @@ $end   => "2006/01/01"
 $actor => ''
 </%args>
 <%init>
-use RT::Extension::Kpi qw( RelevantTxns );
+use Time::Piece;
+use RT::Extension::ActivityReports qw( RelevantTxns );
 my %counts;
+my $queues = RT::Queues->new($session{'CurrentUser'});
+my $transactions = RT::Transactions->new($session{'CurrentUser'});
 my @items;
 my $tickets = RT::Tickets->new($session{'CurrentUser'});
 $tickets->FromSQL(join " AND ", map {"($_)"} grep {/\S/} ($query, "Updated >= '$start' AND Updated <= '$end'"));
@@ -43,23 +358,40 @@ while (my $ticket = $tickets->Next) {
         $counts{$date}{$txn->NewValue || 'new'}++;
 
 	# For the detail report
-        push @items, { queue => $txn->TicketObj->QueueObj->Name,
+        push @items, { 
+                        queue => $txn->TicketObj->Queue,
+                        tid => $txn->id,
+                        type => ($txn->Type ne 'Set') ? $txn->Type : "Queue" ,
                        id => $txn->TicketObj->id,
-                       date => (split ' ', $txn->CreatedObj->ISO)[0],
-                       time => (split ' ', $txn->CreatedObj->ISO)[1],
-                       status => $txn->NewValue || 'new',
+                       fromq => ($txn->Type eq 'Set') ? $txn->OldValue: "",
+                       toq => ($txn->Type eq 'Set') ? $txn->NewValue: "",
+                       trsfrDate => ($txn->Type eq 'Status' || $txn->Type eq 'Set') ? (split ' ', $txn->CreatedObj->ISO)[0] : "",
+                       trsfrTime => ($txn->Type eq 'Status' || $txn->Type eq 'Set') ? (split ' ', $txn->CreatedObj->ISO)[1] : "",
+                       createDate => ($txn->Type eq 'Create') ? (split ' ', $txn->CreatedObj->ISO)[0] : "",
+                       createTime => ($txn->Type eq 'Create') ? (split ' ', $txn->CreatedObj->ISO)[1] : "",
+                       dd => $txn->CreatedObj->ISO,
+                    #    if($txn->OldValue eq 14){
+
+                       old => ($txn->Type eq 'Status') ? $txn->OldValue : ""  ,
+                    #    status => $txn->NewValue || 'new',
+                       status => ($txn->Type eq 'Status') ? $txn->NewValue : "",
                        actor => $txn->CreatorObj->Name,
                        notes => ($txn->Content ne 'This transaction appears to have no content' ? substr($txn->Content, 0, 60) :  $txn->BriefDescription)
                      };
     }
 }
 
+# @items = sort {
+#            $a->{queue}    cmp $b->{'queue'}
+#         || $a->{'status'} cmp $b->{'status'}
+#         || $a->{'id'}     <=> $b->{'id'}
+#         || $a->{'actor'}  cmp $b->{'actor'}
+#         || $a->{'notes'}  cmp $b->{'notes'}
+# } @items;
+
 @items = sort {
-           $a->{queue}    cmp $b->{'queue'}
-        || $a->{'status'} cmp $b->{'status'}
-        || $a->{'id'}     <=> $b->{'id'}
-        || $a->{'actor'}  cmp $b->{'actor'}
-        || $a->{'notes'}  cmp $b->{'notes'}
-} @items;
+          $a->{'id'}     <=> $b->{'id'}
+        || $a->{'type'}  cmp $b->{'type'}
+        } @items;
 
 </%init>

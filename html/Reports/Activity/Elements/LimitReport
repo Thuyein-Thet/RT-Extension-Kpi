@@ -1,6 +1,133 @@
 <form action="index.html" method="GET">
-Query:
-<textarea name="Query" rows="5" cols="80"><% $Query %></textarea><br />
+
+<div class="form-row">
+
+        <!-- id -->
+        <input id="id" type="text" placeholder="Type a ticket id" style="margin:20px;width:12%;height:28px;"></input>
+    
+        <!-- From queue -->
+        <select style="margin:20px;width:12%;height:28px;">
+        <option value="" disabled selected>From queue</option>
+            <option value="Admin">Admin</option>
+            <option value="BC-SbS">BC-SbS</option>
+            <option value="Commander-DIA">Commander-DIA</option>
+            <option value="Commander-SbS">Commander-SbS</option>
+            <option value="CPEOps">CPEOps</option>
+            <option value="CPE-SbS">CPE-SbS</option>
+            <option value="CS-Bz">CS-Bz</option>
+            <option value="CS-SbS">CS-SbS (Inbound)</option>
+            <option value="CS-SbS-Finance">CS-SbS-Finance</option>
+            <option value="CS-Viber">CS-Viber</option>
+            <option value="Customer Support">Customer Support</option>
+            <option value="DevOps">DevOps</option>
+            <option value="DIA Finance">DIA Finance</option>
+            <option value="Enterprise IT">Enterprise IT</option>
+            <option value="ERP Support">ERP Support</option>
+            <option value="FiberImpl">FiberImpl</option>
+            <option value="FiberOps">FiberOps</option>
+            <option value="FiberW">FiberW</option>
+            <option value="FiberWOps">FiberWOps</option>
+            <option value="FieldOps-Infra">FieldOps-Infra</option>
+            <option value="FieldOps-SbS">FieldOps-SbS</option>
+            <option value="Finance-Ops">Finance-Ops</option>
+            <option value="FTTx-Ops">FTTx-Ops</option>
+            <option value="LANOps">LANOps</option>
+            <option value="Network Operation Center">Network Operation Center</option>
+            <option value="Network Planning">Network Planning</option>
+            <option value="NOC-SbS">NOC-SbS</option>
+            <option value="QC-Wireless">QC-Wireless</option>
+            <option value="Store-SbS">Store-SbS</option>
+            <option value="Dev Team">Dev Team</option>
+            <option value="Sales Insurance">Sales Insurance</option>
+            <option value="DF Ops">DF Ops</option>
+        </select>
+    
+        <!-- To queue -->
+        <select style="margin:20px;width:12%;height:28px;">
+            <option value="" disabled selected>To queue</option>
+            <option value="Admin">Admin</option>
+            <option value="BC-SbS">BC-SbS</option>
+            <option value="Commander-DIA">Commander-DIA</option>
+            <option value="Commander-SbS">Commander-SbS</option>
+            <option value="CPEOps">CPEOps</option>
+            <option value="CPE-SbS">CPE-SbS</option>
+            <option value="CS-Bz">CS-Bz</option>
+            <option value="CS-SbS">CS-SbS (Inbound)</option>
+            <option value="CS-SbS-Finance">CS-SbS-Finance</option>
+            <option value="CS-Viber">CS-Viber</option>
+            <option value="Customer Support">Customer Support</option>
+            <option value="DevOps">DevOps</option>
+            <option value="DIA Finance">DIA Finance</option>
+            <option value="Enterprise IT">Enterprise IT</option>
+            <option value="ERP Support">ERP Support</option>
+            <option value="FiberImpl">FiberImpl</option>
+            <option value="FiberOps">FiberOps</option>
+            <option value="FiberW">FiberW</option>
+            <option value="FiberWOps">FiberWOps</option>
+            <option value="FieldOps-Infra">FieldOps-Infra</option>
+            <option value="FieldOps-SbS">FieldOps-SbS</option>
+            <option value="Finance-Ops">Finance-Ops</option>
+            <option value="FTTx-Ops">FTTx-Ops</option>
+            <option value="LANOps">LANOps</option>
+            <option value="Network Operation Center">Network Operation Center</option>
+            <option value="Network Planning">Network Planning</option>
+            <option value="NOC-SbS">NOC-SbS</option>
+            <option value="QC-Wireless">QC-Wireless</option>
+            <option value="Store-SbS">Store-SbS</option>
+            <option value="Dev Team">Dev Team</option>
+            <option value="Sales Insurance">Sales Insurance</option>
+            <option value="DF Ops">DF Ops</option>
+        </select>
+    
+        <!-- Date -->
+        <div class="form-row" style="margin-top:20px;width:24%;height:28px;">
+        <div class="col" ><input type="text" name="Start" value="<% $Start %>" />
+          <script>
+            var dtt = document.getElementById('fromDate')
+            dtt.onfocus = function (event) {
+                this.type = 'datetime-local';
+                this.focus();
+            }
+          </script></div>
+          <div class="col" ><input type="text" name="End"   value="<% $End   %>" /><br />
+            <script>
+              var dtt = document.getElementById('toDate')
+              dtt.onfocus = function (event) {
+                  this.type = 'datetime-local';
+                  this.focus();
+              }
+            </script></div>
+        </div>
+    
+        <!-- service group -->
+        <select style="margin:20px;width:12%;height:28px;">
+            <option value="" disabled selected>Choose Service Group</option>
+            <option value="pui">Yangon-MNet Plus-Unlimited Internet</option>
+            <option value="pfi">Yangon-MNet Plus-Fiber Internet</option>
+            <option value="phge">Yangon-MNet-Fiber Internet-PHGE</option>
+            <option value="mdy">Mandalay-MNet Plus-Fiber Internet</option>
+        </select>
+    
+        <!-- root cause -->
+        <select style="margin:20px;width:12%;height:28px;">
+          <option value="" disabled selected>Choose Root Cause</option>
+              <option value="2.4g">2.4G Interference</option>
+              <option value="down">Bandwidth Downgrade</option>
+              <option value="up">Bandwidth Upgrade</option>
+              <option value="billC">Bill Collector</option>
+              <option value="cpeis">CPE Issue</option>
+              <option value="crr">CPE Remote Reboot</option>
+              <option value="cis">Customer Issue</option>
+              <option value="ec">Environmental Complaint</option>
+              <option value="l2">L2 Backhaul Link Congestion</option>
+              <option value="mrc">MRC Complaint</option>
+              <option value="ris">Routing Issue</option>
+              <option value="sdown">Site Down</option>
+          </select>
+    </div>
+
+<!-- Query:
+<textarea name="Query" rows="5" cols="80"><% $Query %></textarea><br /> -->
 
 Report type: <select name="ReportType">
 <option value="ActivityDetail" <% $ReportType =~ /ActivityDetail/ ? 'selected' : '' %>>Activity detail</option>
@@ -11,11 +138,18 @@ Report type: <select name="ReportType">
 <option value="WorkedStatistics" <% $ReportType =~ /WorkedStatistics/ ? 'selected' : '' %>>Time worked statistics</option>
 </select><br />
 
+<!-- 
 Start date: <input type="text" name="Start" value="<% $Start %>" /><br />
-End date:   <input type="text" name="End"   value="<% $End   %>" /><br />
-Limit to user: <& /Elements/SelectOwner, Name => "Actor", ValueAttribute => 'Name', Default => $actor_obj->Id||0 &>
+End date:   <input type="text" name="End"   value="<% $End   %>" /><br /> -->
+<!-- Limit to user: <& /Elements/SelectOwner, Name => "Actor", ValueAttribute => 'Name', Default => $actor_obj->Id||0 &> -->
 % $m->callback( %ARGS, CallbackName => 'AddOptions' );
-<& /Elements/Submit, Label => loc('Report') &>
+<div class="form-row">
+    <div class="form-row" style="margin-left:20px;">
+        <input type="submit" class="btn btn-primary form-control button" id="search">
+        <a href="http://localhost:8080/Reports/Activity/index.html" style="margin-left:20px;margin-top:10px;font-size: 15px;font-weight: bold;">Clear</a>
+    </div>
+    </div>
+<!-- <& /Elements/Submit, Label => loc('Search') &> -->
 </form>
 <%args>
 $ReportType  => ''
