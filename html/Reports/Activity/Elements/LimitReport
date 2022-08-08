@@ -3,11 +3,12 @@
 <div class="form-row">
 
         <!-- id -->
-        <input id="id" type="text" placeholder="Type a ticket id" style="margin:20px;width:12%;height:28px;"></input>
+        <input type="text" name="Id" value="<% $Id %>" placeholder="Type a ticket id" style="margin:20px;width:12%;height:28px;"></input>
     
         <!-- From queue -->
-        <select style="margin:20px;width:12%;height:28px;">
+        <select style="margin:20px;width:12%;height:28px;" name="Fq">
         <option value="" disabled selected>From queue</option>
+        <!-- <option value="Admin" <% $Fq =~ /Admin/ ? 'selected' : '' %>>Admin</option> -->
             <option value="Admin">Admin</option>
             <option value="BC-SbS">BC-SbS</option>
             <option value="Commander-DIA">Commander-DIA</option>
@@ -82,21 +83,9 @@
         <!-- Date -->
         <div class="form-row" style="margin-top:20px;width:24%;height:28px;">
         <div class="col" ><input type="text" name="Start" value="<% $Start %>" />
-          <script>
-            var dtt = document.getElementById('fromDate')
-            dtt.onfocus = function (event) {
-                this.type = 'datetime-local';
-                this.focus();
-            }
-          </script></div>
-          <div class="col" ><input type="text" name="End"   value="<% $End   %>" /><br />
-            <script>
-              var dtt = document.getElementById('toDate')
-              dtt.onfocus = function (event) {
-                  this.type = 'datetime-local';
-                  this.focus();
-              }
-            </script></div>
+        </div>
+        <div class="col" ><input type="text" name="End"   value="<% $End   %>" /><br />
+        </div>
         </div>
     
         <!-- service group -->
@@ -126,32 +115,28 @@
           </select>
     </div>
 
-<!-- Query:
-<textarea name="Query" rows="5" cols="80"><% $Query %></textarea><br /> -->
-
+<div hidden>
 Report type: <select name="ReportType">
 <option value="ActivityDetail" <% $ReportType =~ /ActivityDetail/ ? 'selected' : '' %>>Activity detail</option>
-<option value="ActivitySummary" <% $ReportType =~ /ActivitySummary/ ? 'selected' : '' %>>Activity summary</option>
-% $m->callback( %ARGS, CallbackName => 'AddReports' );
-<option value="ResolutionComments" <% $ReportType =~ /ResolutionComments/ ? 'selected' : '' %>>Resolution comments</option>
-<option value="ResolutionStatistics" <% $ReportType =~ /ResolutionStatistics/ ? 'selected' : '' %>>Resolution statistics</option>
-<option value="WorkedStatistics" <% $ReportType =~ /WorkedStatistics/ ? 'selected' : '' %>>Time worked statistics</option>
-</select><br />
-
+</select><br /> 
+</div>
 <!-- 
 Start date: <input type="text" name="Start" value="<% $Start %>" /><br />
 End date:   <input type="text" name="End"   value="<% $End   %>" /><br /> -->
 <!-- Limit to user: <& /Elements/SelectOwner, Name => "Actor", ValueAttribute => 'Name', Default => $actor_obj->Id||0 &> -->
-% $m->callback( %ARGS, CallbackName => 'AddOptions' );
+<!-- % $m->callback( %ARGS, CallbackName => 'AddOptions' ); -->
 <div class="form-row">
     <div class="form-row" style="margin-left:20px;">
         <input type="submit" class="btn btn-primary form-control button" id="search">
         <a href="http://localhost:8080/Reports/Activity/index.html" style="margin-left:20px;margin-top:10px;font-size: 15px;font-weight: bold;">Clear</a>
     </div>
     </div>
+    <br />
 <!-- <& /Elements/Submit, Label => loc('Search') &> -->
 </form>
-<%args>
+<%args> 
+$Id => ''
+$Fq => ''
 $ReportType  => ''
 $Start => undef
 $End   => undef
@@ -162,3 +147,4 @@ $Actor => undef
 my $actor_obj = RT::User->new($session{CurrentUser});
 $actor_obj->LoadByCol( Name => $Actor );
 </%init>
+

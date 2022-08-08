@@ -64,8 +64,9 @@ if ( $request_path =~ qr{^/Search/(?:Article|Build|Bulk|Chart|Graph|Results)\.ht
                     path => '/Reports/Activity/index.html?Query=' .$m->request_args->{'Query'},
                     sort_order => $sort_order );
 }
-
 my $menu = Menu;
-my $tools = $menu->child('tools');
-$tools->child('activity-reports' => title => loc('Activity Reports'), path  => '/Reports/Activity/index.html' );
+my $kpi = $menu->child( kpi => title => loc('KPI'), path => '/Reports/Activity/index.html' );
+
+
+
 </%INIT>

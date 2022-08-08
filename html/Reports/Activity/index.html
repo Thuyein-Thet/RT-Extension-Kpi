@@ -1,26 +1,27 @@
-<&| Elements/Wrapper, %ARGS, title => loc("Activity reports") &>
-<& /Elements/ListActions, actions => \@actions &>
+<&| Elements/Wrapper, %ARGS, title => loc("KPI") &>
+<!-- <& /Elements/ListActions, actions => \@actions &> -->
 
 % if ($ReportType) {
-%   if ($mode eq 'screen') {
-      <& /Widgets/SavedSearch:show, %ARGS, Action => 'index.html', self => $saved_search, Title => 'Saved Activity reports' &>
-%   }
 <& /Search/Elements/ActivityReport, %ARGS &>
 % }
 
 </&>
 
 <%args>
+$Id => ''
+$Fq => ''
 $ReportType => ''
 $mode  => 'screen'
 </%args>
 <%init>
+$Id = $ARGS{Id} ||='';
+$Fq = $ARGS{Fq} ||='';
 $ReportType = $ARGS{ReportType} ||= $ARGS{type} ||= '';
 $ARGS{Start}      ||= $ARGS{start};
 $ARGS{End}        ||= $ARGS{end};
 $ARGS{Query}      ||= $ARGS{query};
 delete $ARGS{$_} for qw(type start end query);
-
+ 
 unless ($ARGS{Start}) {
     my $then = RT::Date->new($session{'CurrentUser'});
     $then->Set(Format => 'Unix', Value => time - (86400*7));

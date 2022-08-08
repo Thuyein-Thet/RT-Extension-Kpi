@@ -1,0 +1,22 @@
+=head2 Thu Aug  4 02:49:46 2022: C<Module> L<RT::Extension::Kpi|RT::Extension::Kpi>
+
+=over 4
+
+=item *
+
+C<installed into: /opt/rt5/local/plugins/RT-Extension-Kpi/lib>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.09>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
