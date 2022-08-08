@@ -10,12 +10,14 @@
 <%args>
 $Id => ''
 $Fq => ''
+$Tq => ''
 $ReportType => ''
 $mode  => 'screen'
 </%args>
 <%init>
 $Id = $ARGS{Id} ||='';
 $Fq = $ARGS{Fq} ||='';
+$Tq = $ARGS{Tq} ||='';
 $ReportType = $ARGS{ReportType} ||= $ARGS{type} ||= '';
 $ARGS{Start}      ||= $ARGS{start};
 $ARGS{End}        ||= $ARGS{end};

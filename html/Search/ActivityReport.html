@@ -5,5 +5,5 @@ $End   => undef
 $Query => ''
 </%args>
 <%init>
-$m->redirect($RT::WebPath . '/Reports/Activity/index.html?' . $m->comp('/Elements/QueryString', Id => $Id, Fq => $Fq, Query => $Query, Start => $Start, End => $End, ReportType => $ReportType));
+$m->redirect($RT::WebPath . '/Reports/Activity/index.html?' . $m->comp('/Elements/QueryString', Id => $Id, Fq => $Fq, Tq => $Tq, Query => $Query, Start => $Start, End => $End, ReportType => $ReportType));
 </%init>

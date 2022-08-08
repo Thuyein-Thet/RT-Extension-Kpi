@@ -9,6 +9,11 @@
         <select style="margin:20px;width:12%;height:28px;" name="Fq">
         <option value="" disabled selected>From queue</option>
         <!-- <option value="Admin" <% $Fq =~ /Admin/ ? 'selected' : '' %>>Admin</option> -->
+            <option value="General">General</option>
+            <option value="Incidents">Incidents</option>
+            <option value="Incident Reports">Incident Reports</option>
+            <option value="Investigations">Investigations</option>
+            <option value="Countermeasures">Countermeasures</option>
             <option value="Admin">Admin</option>
             <option value="BC-SbS">BC-SbS</option>
             <option value="Commander-DIA">Commander-DIA</option>
@@ -16,7 +21,7 @@
             <option value="CPEOps">CPEOps</option>
             <option value="CPE-SbS">CPE-SbS</option>
             <option value="CS-Bz">CS-Bz</option>
-            <option value="CS-SbS">CS-SbS (Inbound)</option>
+            <option value="CS-SbS (Inbound)">CS-SbS (Inbound)</option>
             <option value="CS-SbS-Finance">CS-SbS-Finance</option>
             <option value="CS-Viber">CS-Viber</option>
             <option value="Customer Support">Customer Support</option>
@@ -32,20 +37,56 @@
             <option value="FieldOps-SbS">FieldOps-SbS</option>
             <option value="Finance-Ops">Finance-Ops</option>
             <option value="FTTx-Ops">FTTx-Ops</option>
+            <option value="Infra Provision Team">Infra Provision Team</option>
+            <option value="ISP App">ISP App</option>
+            <option value="ISP Portal">ISP Portal</option>
+            <option value="ISP Tvie">ISP Tvie</option>
+            <option value="ISP Wallet">ISP Wallet</option>
+            <option value="IT Support">IT Support</option>
             <option value="LANOps">LANOps</option>
+            <option value="LDAP">LDAP</option>
+            <option value="Level2-SbS-Commander">Level2-SbS-Commander</option>
+            <option value="FieldOps-MDY">FieldOps-MDY</option>
+            <option value="MnEOps-Infra">MnEOps-Infra</option>
+            <option value="MnEOps-SbS">MnEOps-SbS</option>
+            <option value="MNet Billing">MNet Billing</option>
             <option value="Network Operation Center">Network Operation Center</option>
             <option value="Network Planning">Network Planning</option>
             <option value="NOC-SbS">NOC-SbS</option>
+            <option value="OPI Implementation">OPI Implementation</option>
+            <option value="Order Processing">Order Processing</option>
+            <option value="Planning-SbS">Planning-SbS</option>
+            <option value="PMOps">PMOps</option>
             <option value="QC-Wireless">QC-Wireless</option>
+            <option value="Reseller-SbS">Reseller-SbS</option>
+            <option value="Sales-DIA">Sales-DIA</option>
+            <option value="Sales-OPI">Sales-OPI</option>
+            <option value="Sales-SbS">Sales-SbS</option>
+            <option value="Sales-MN Plus">Sales-MN Plus</option>
+            <option value="Sales-Insurance">Sales-Insurance</option>
+            <option value="SbSGov">SbSGov</option>
+            <option value="SbSImpl">SbSImpl</option>
+            <option value="SbS-Ticketing">SbS-Ticketing</option>
+            <option value="SiteLease">SiteLease</option>
             <option value="Store-SbS">Store-SbS</option>
+            <option value="StrategicGov">StrategicGov</option>
+            <option value="Wholesale">Wholesale</option>
             <option value="Dev Team">Dev Team</option>
             <option value="Sales Insurance">Sales Insurance</option>
             <option value="DF Ops">DF Ops</option>
+            <option value="Sale Insurance">Sale Insurance</option>
+            <option value="Finance-SBS-Daiichi">Finance-SBS-Daiichi</option>
+            <option value="MNet Billing-Daiichi">MNet Billing-Daiichi</option>
         </select>
     
         <!-- To queue -->
-        <select style="margin:20px;width:12%;height:28px;">
+        <select style="margin:20px;width:12%;height:28px;" name="Tq">
             <option value="" disabled selected>To queue</option>
+            <option value="General">General</option>
+            <option value="Incidents">Incidents</option>
+            <option value="Incident Reports">Incident Reports</option>
+            <option value="Investigations">Investigations</option>
+            <option value="Countermeasures">Countermeasures</option>
             <option value="Admin">Admin</option>
             <option value="BC-SbS">BC-SbS</option>
             <option value="Commander-DIA">Commander-DIA</option>
@@ -53,7 +94,7 @@
             <option value="CPEOps">CPEOps</option>
             <option value="CPE-SbS">CPE-SbS</option>
             <option value="CS-Bz">CS-Bz</option>
-            <option value="CS-SbS">CS-SbS (Inbound)</option>
+            <option value="CS-SbS (Inbound)">CS-SbS (Inbound)</option>
             <option value="CS-SbS-Finance">CS-SbS-Finance</option>
             <option value="CS-Viber">CS-Viber</option>
             <option value="Customer Support">Customer Support</option>
@@ -69,15 +110,46 @@
             <option value="FieldOps-SbS">FieldOps-SbS</option>
             <option value="Finance-Ops">Finance-Ops</option>
             <option value="FTTx-Ops">FTTx-Ops</option>
+            <option value="Infra Provision Team">Infra Provision Team</option>
+            <option value="ISP App">ISP App</option>
+            <option value="ISP Portal">ISP Portal</option>
+            <option value="ISP Tvie">ISP Tvie</option>
+            <option value="ISP Wallet">ISP Wallet</option>
+            <option value="IT Support">IT Support</option>
             <option value="LANOps">LANOps</option>
+            <option value="LDAP">LDAP</option>
+            <option value="Level2-SbS-Commander">Level2-SbS-Commander</option>
+            <option value="FieldOps-MDY">FieldOps-MDY</option>
+            <option value="MnEOps-Infra">MnEOps-Infra</option>
+            <option value="MnEOps-SbS">MnEOps-SbS</option>
+            <option value="MNet Billing">MNet Billing</option>
             <option value="Network Operation Center">Network Operation Center</option>
             <option value="Network Planning">Network Planning</option>
             <option value="NOC-SbS">NOC-SbS</option>
+            <option value="OPI Implementation">OPI Implementation</option>
+            <option value="Order Processing">Order Processing</option>
+            <option value="Planning-SbS">Planning-SbS</option>
+            <option value="PMOps">PMOps</option>
             <option value="QC-Wireless">QC-Wireless</option>
+            <option value="Reseller-SbS">Reseller-SbS</option>
+            <option value="Sales-DIA">Sales-DIA</option>
+            <option value="Sales-OPI">Sales-OPI</option>
+            <option value="Sales-SbS">Sales-SbS</option>
+            <option value="Sales-MN Plus">Sales-MN Plus</option>
+            <option value="Sales-Insurance">Sales-Insurance</option>
+            <option value="SbSGov">SbSGov</option>
+            <option value="SbSImpl">SbSImpl</option>
+            <option value="SbS-Ticketing">SbS-Ticketing</option>
+            <option value="SiteLease">SiteLease</option>
             <option value="Store-SbS">Store-SbS</option>
+            <option value="StrategicGov">StrategicGov</option>
+            <option value="Wholesale">Wholesale</option>
             <option value="Dev Team">Dev Team</option>
             <option value="Sales Insurance">Sales Insurance</option>
             <option value="DF Ops">DF Ops</option>
+            <option value="Sale Insurance">Sale Insurance</option>
+            <option value="Finance-SBS-Daiichi">Finance-SBS-Daiichi</option>
+            <option value="MNet Billing-Daiichi">MNet Billing-Daiichi</option>
         </select>
     
         <!-- Date -->
@@ -137,6 +209,7 @@ End date:   <input type="text" name="End"   value="<% $End   %>" /><br /> -->
 <%args> 
 $Id => ''
 $Fq => ''
+$Tq => ''
 $ReportType  => ''
 $Start => undef
 $End   => undef

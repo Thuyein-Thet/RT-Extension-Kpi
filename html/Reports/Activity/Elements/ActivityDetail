@@ -11,6 +11,7 @@
 <th>Duration</th>
 <th>Short description</th>
 </tr>
+% my $duration;
 % my $fromq;
 % my $toq;
 % my $firstYear;
@@ -37,291 +38,354 @@
 % my $lockMonth;
 % my $lockCreateTime;
 % my $lockCreateDate;
+
+
+
+
+
+%#------------------------------------------------------------id & Date------------------------------------
 % for my $item (@items) {
 
-% if($item->{fromq} eq 1 ) {
-% $fromq ="General";
-% } elsif ($item->{fromq} eq 69 ) {
-% $fromq ="MNet Billing-Daiichi";
-% } elsif ($item->{fromq} eq 3 ) {
-% $fromq ="Incidents";
-% } elsif ($item->{fromq} eq 4 ) {
-% $fromq ="Incident Reports";
+% if($item->{fromq} eq 14 ) {
+% $fromq = "CS-Viber";
+% } elsif ($item->{fromq} eq 1 ) {
+% $fromq = "General";
 % } elsif ($item->{fromq} eq 5 ) {
-% $fromq ="Investigations";
+% $fromq = "Admin";
 % } elsif ($item->{fromq} eq 6 ) {
-% $fromq ="Countermeasures";
+% $fromq = "BC-SbS";
 % } elsif ($item->{fromq} eq 7 ) {
-% $fromq ="Admin";
+% $fromq = "Commander-DIA";
 % } elsif ($item->{fromq} eq 8 ) {
-% $fromq ="BC-SbS";
+% $fromq = "Commander-SbS";
 % } elsif ($item->{fromq} eq 9 ) {
-% $fromq ="Commander-DIA";
+% $fromq = "CPEOps";
 % } elsif ($item->{fromq} eq 10 ) {
-% $fromq ="Commander-SbS";
+% $fromq = "CPE-SbS";
 % } elsif ($item->{fromq} eq 11 ) {
-% $fromq ="CPEOps";
+% $fromq = "CS-Bz";
 % } elsif ($item->{fromq} eq 12 ) {
-% $fromq ="CPE-SbS";
+% $fromq = "CS-SbS (Inbound)";
 % } elsif ($item->{fromq} eq 13 ) {
-% $fromq ="CS-Bz";
+% $fromq = "CS-SbS-Finance";
 % } elsif ($item->{fromq} eq 14 ) {
-% $fromq ="CS-SbS (Inbound)";
+% $fromq = "CS-Viber";
 % } elsif ($item->{fromq} eq 15 ) {
-% $fromq ="CS-SbS-Finance";
+% $fromq = "Customer Support";
 % } elsif ($item->{fromq} eq 16 ) {
-% $fromq ="CS-Viber";
+% $fromq = "DevOps";
 % } elsif ($item->{fromq} eq 17 ) {
-% $fromq ="Customer Support";
+% $fromq = "DIA Finance";
 % } elsif ($item->{fromq} eq 18 ) {
-% $fromq ="DevOps";
+% $fromq = "Enterprise IT";
 % } elsif ($item->{fromq} eq 19 ) {
-% $fromq ="DIA Finance";
+% $fromq = "ERP Support";
 % } elsif ($item->{fromq} eq 20 ) {
-% $fromq ="Enterprise IT";
+% $fromq = "FiberImpl";
 % } elsif ($item->{fromq} eq 21 ) {
-% $fromq ="ERP Support";
+% $fromq = "FiberOps";
 % } elsif ($item->{fromq} eq 22 ) {
-% $fromq ="FiberImpl";
+% $fromq = "FIberW";
 % } elsif ($item->{fromq} eq 23 ) {
-% $fromq ="FiberOps";
+% $fromq = "FiberWOps";
 % } elsif ($item->{fromq} eq 24 ) {
-% $fromq ="FiberW";
+% $fromq = "FieldOps-Infra";
 % } elsif ($item->{fromq} eq 25 ) {
-% $fromq ="FiberWOps";
+% $fromq = "FieldOps-SbS";
 % } elsif ($item->{fromq} eq 26 ) {
-% $fromq ="FieldOps-Infra";
+% $fromq = "Finance-Ops";
 % } elsif ($item->{fromq} eq 27 ) {
-% $fromq ="FieldOps-SbS";
+% $fromq = "FTTx-Ops";
 % } elsif ($item->{fromq} eq 28 ) {
-% $fromq ="Finance-Ops";
+% $fromq = "LANOps";
 % } elsif ($item->{fromq} eq 29 ) {
-% $fromq ="FTTx-Ops";
+% $fromq = "Network Operation Center";
 % } elsif ($item->{fromq} eq 30 ) {
-% $fromq ="Infra Provision Team";
+% $fromq = "Network Planning";
 % } elsif ($item->{fromq} eq 31 ) {
-% $fromq ="ISP App";
+% $fromq = "NOC-SbS";
 % } elsif ($item->{fromq} eq 32 ) {
-% $fromq ="ISP Portal";
+% $fromq = "QC-Wireless";
 % } elsif ($item->{fromq} eq 33 ) {
-% $fromq ="ISP Tvie";
+% $fromq = "Store-SbS";
 % } elsif ($item->{fromq} eq 34 ) {
-% $fromq ="ISP Wallet";
+% $fromq = "Dev Team";
 % } elsif ($item->{fromq} eq 35 ) {
-% $fromq ="IT Support";
+% $fromq = "Sales Insurance";
 % } elsif ($item->{fromq} eq 36 ) {
-% $fromq ="LANOps";
-% } elsif ($item->{fromq} eq 37 ) {
-% $fromq ="LDAP";
-% } elsif ($item->{fromq} eq 38 ) {
-% $fromq ="Level2-SbS-Commander";
-% } elsif ($item->{fromq} eq 39 ) {
-% $fromq ="FieldOps-MDY";
-% } elsif ($item->{fromq} eq 40 ) {
-% $fromq ="MnEOps-Infra";
-% } elsif ($item->{fromq} eq 41 ) {
-% $fromq ="MnEOps-SbS";
-% } elsif ($item->{fromq} eq 42 ) {
-% $fromq ="MNet Billing";
-% } elsif ($item->{fromq} eq 43 ) {
-% $fromq ="Network Operation Center";
-% } elsif ($item->{fromq} eq 44 ) {
-% $fromq ="Network Planning";
-% } elsif ($item->{fromq} eq 45 ) {
-% $fromq ="NOC-SbS";
-% } elsif ($item->{fromq} eq 46 ) {
-% $fromq ="OPI Implementation";
-% } elsif ($item->{fromq} eq 47 ) {
-% $fromq ="Order Processing";
-% } elsif ($item->{fromq} eq 48 ) {
-% $fromq ="Planning-SbS";
-% } elsif ($item->{fromq} eq 49 ) {
-% $fromq ="PMOps";
-% } elsif ($item->{fromq} eq 50 ) {
-% $fromq ="QC-Wireless";
-% } elsif ($item->{fromq} eq 51 ) {
-% $fromq ="Reseller-SbS";
-% } elsif ($item->{fromq} eq 52 ) {
-% $fromq ="Sales-DIA";
-% } elsif ($item->{fromq} eq 53 ) {
-% $fromq ="Sales-OPI";
-% } elsif ($item->{fromq} eq 54 ) {
-% $fromq ="Sales-SbS";
-% } elsif ($item->{fromq} eq 55 ) {
-% $fromq ="Sales-MN Plus";
-% } elsif ($item->{fromq} eq 56 ) {
-% $fromq ="Sales-Insurance";
-% } elsif ($item->{fromq} eq 57 ) {
-% $fromq ="SbSGov";
-% } elsif ($item->{fromq} eq 58 ) {
-% $fromq ="SbSImpl";
-% } elsif ($item->{fromq} eq 59 ) {
-% $fromq ="SbS-Ticketing";
-% } elsif ($item->{fromq} eq 60 ) {
-% $fromq ="SiteLease";
-% } elsif ($item->{fromq} eq 61 ) {
-% $fromq ="Store-SbS";
-% } elsif ($item->{fromq} eq 62 ) {
-% $fromq ="StrategicGov";
-% } elsif ($item->{fromq} eq 63 ) {
-% $fromq ="Wholesale";
-% } elsif ($item->{fromq} eq 64 ) {
-% $fromq ="Dev Team";
-% } elsif ($item->{fromq} eq 65 ) {
-% $fromq ="Sales Insurance";
-% } elsif ($item->{fromq} eq 66 ) {
-% $fromq ="DF Ops";
-% } elsif ($item->{fromq} eq 67 ) {
-% $fromq ="Sale Insurance";
-% } elsif ($item->{fromq} eq 68 ) {
-% $fromq ="Finance-SBS-Daiichi";
+% $fromq = "DF Ops";
 % } else {
-% $fromq =$item->{fromq};
+% $fromq = $item->{fromq};
 % }
 
 
-% if($item->{toq} eq 1 ) {
-% $toq = "General";
-% } elsif ($item->{toq} eq 69 ) {
-% $toq = "MNet Billing-Daiichi";
-% } elsif ($item->{toq} eq 3 ) {
-% $toq = "Incidents";
-% } elsif ($item->{toq} eq 4 ) {
-% $toq = "Incident Reports";
+% if($item->{toq} eq 14 ) {
+% $toq= "CS-Viber";
 % } elsif ($item->{toq} eq 5 ) {
-% $toq = "Investigations";
+% $toq= "Admin";
 % } elsif ($item->{toq} eq 6 ) {
-% $toq = "Countermeasures";
+% $toq= "BC-SbS";
 % } elsif ($item->{toq} eq 7 ) {
-% $toq = "Admin";
+% $toq= "Commander-DIA";
 % } elsif ($item->{toq} eq 8 ) {
-% $toq = "BC-SbS";
+% $toq= "Commander-SbS";
 % } elsif ($item->{toq} eq 9 ) {
-% $toq = "Commander-DIA";
+% $toq= "CPEOps";
 % } elsif ($item->{toq} eq 10 ) {
-% $toq = "Commander-SbS";
+% $toq= "CPE-SbS";
 % } elsif ($item->{toq} eq 11 ) {
-% $toq = "CPEOps";
+% $toq= "CS-Bz";
 % } elsif ($item->{toq} eq 12 ) {
-% $toq = "CPE-SbS";
+% $toq= "CS-SbS (Inbound)";
 % } elsif ($item->{toq} eq 13 ) {
-% $toq = "CS-Bz";
+% $toq= "CS-SbS-Finance";
 % } elsif ($item->{toq} eq 14 ) {
-% $toq = "CS-SbS (Inbound)";
+% $toq= "CS-Viber";
 % } elsif ($item->{toq} eq 15 ) {
-% $toq = "CS-SbS-Finance";
+% $toq= "Customer Support";
 % } elsif ($item->{toq} eq 16 ) {
-% $toq = "CS-Viber";
+% $toq= "DevOps";
 % } elsif ($item->{toq} eq 17 ) {
-% $toq = "Customer Support";
+% $toq= "DIA Finance";
 % } elsif ($item->{toq} eq 18 ) {
-% $toq = "DevOps";
+% $toq= "Enterprise IT";
 % } elsif ($item->{toq} eq 19 ) {
-% $toq = "DIA Finance";
+% $toq= "ERP Support";
 % } elsif ($item->{toq} eq 20 ) {
-% $toq = "Enterprise IT";
+% $toq= "FiberImpl";
 % } elsif ($item->{toq} eq 21 ) {
-% $toq = "ERP Support";
+% $toq= "FiberOps";
 % } elsif ($item->{toq} eq 22 ) {
-% $toq = "FiberImpl";
+% $toq= "FIberW";
 % } elsif ($item->{toq} eq 23 ) {
-% $toq = "FiberOps";
+% $toq= "FiberWOps";
 % } elsif ($item->{toq} eq 24 ) {
-% $toq = "FiberW";
+% $toq= "FieldOps-Infra";
 % } elsif ($item->{toq} eq 25 ) {
-% $toq = "FiberWOps";
+% $toq= "FieldOps-SbS";
 % } elsif ($item->{toq} eq 26 ) {
-% $toq = "FieldOps-Infra";
+% $toq= "Finance-Ops";
 % } elsif ($item->{toq} eq 27 ) {
-% $toq = "FieldOps-SbS";
+% $toq= "FTTx-Ops";
 % } elsif ($item->{toq} eq 28 ) {
-% $toq = "Finance-Ops";
+% $toq= "LANOps";
 % } elsif ($item->{toq} eq 29 ) {
-% $toq = "FTTx-Ops";
+% $toq= "Network Operation Center";
 % } elsif ($item->{toq} eq 30 ) {
-% $toq = "Infra Provision Team";
+% $toq= "Network Planning";
 % } elsif ($item->{toq} eq 31 ) {
-% $toq = "ISP App";
+% $toq= "NOC-SbS";
 % } elsif ($item->{toq} eq 32 ) {
-% $toq = "ISP Portal";
+% $toq= "QC-Wireless";
 % } elsif ($item->{toq} eq 33 ) {
-% $toq = "ISP Tvie";
+% $toq= "Store-SbS";
 % } elsif ($item->{toq} eq 34 ) {
-% $toq = "ISP Wallet";
+% $toq= "Dev Team";
 % } elsif ($item->{toq} eq 35 ) {
-% $toq = "IT Support";
+% $toq= "Sales Insurance";
 % } elsif ($item->{toq} eq 36 ) {
-% $toq = "LANOps";
-% } elsif ($item->{toq} eq 37 ) {
-% $toq = "LDAP";
-% } elsif ($item->{toq} eq 38 ) {
-% $toq = "Level2-SbS-Commander";
-% } elsif ($item->{toq} eq 39 ) {
-% $toq = "FieldOps-MDY";
-% } elsif ($item->{toq} eq 40 ) {
-% $toq = "MnEOps-Infra";
-% } elsif ($item->{toq} eq 41 ) {
-% $toq = "MnEOps-SbS";
-% } elsif ($item->{toq} eq 42 ) {
-% $toq = "MNet Billing";
-% } elsif ($item->{toq} eq 43 ) {
-% $toq = "Network Operation Center";
-% } elsif ($item->{toq} eq 44 ) {
-% $toq = "Network Planning";
-% } elsif ($item->{toq} eq 45 ) {
-% $toq = "NOC-SbS";
-% } elsif ($item->{toq} eq 46 ) {
-% $toq = "OPI Implementation";
-% } elsif ($item->{toq} eq 47 ) {
-% $toq = "Order Processing";
-% } elsif ($item->{toq} eq 48 ) {
-% $toq = "Planning-SbS";
-% } elsif ($item->{toq} eq 49 ) {
-% $toq = "PMOps";
-% } elsif ($item->{toq} eq 50 ) {
-% $toq = "QC-Wireless";
-% } elsif ($item->{toq} eq 51 ) {
-% $toq = "Reseller-SbS";
-% } elsif ($item->{toq} eq 52 ) {
-% $toq = "Sales-DIA";
-% } elsif ($item->{toq} eq 53 ) {
-% $toq = "Sales-OPI";
-% } elsif ($item->{toq} eq 54 ) {
-% $toq = "Sales-SbS";
-% } elsif ($item->{toq} eq 55 ) {
-% $toq = "Sales-MN Plus";
-% } elsif ($item->{toq} eq 56 ) {
-% $toq = "Sales-Insurance";
-% } elsif ($item->{toq} eq 57 ) {
-% $toq = "SbSGov";
-% } elsif ($item->{toq} eq 58 ) {
-% $toq = "SbSImpl";
-% } elsif ($item->{toq} eq 59 ) {
-% $toq = "SbS-Ticketing";
-% } elsif ($item->{toq} eq 60 ) {
-% $toq = "SiteLease";
-% } elsif ($item->{toq} eq 61 ) {
-% $toq = "Store-SbS";
-% } elsif ($item->{toq} eq 62 ) {
-% $toq = "StrategicGov";
-% } elsif ($item->{toq} eq 63 ) {
-% $toq = "Wholesale";
-% } elsif ($item->{toq} eq 64 ) {
-% $toq = "Dev Team";
-% } elsif ($item->{toq} eq 65 ) {
-% $toq = "Sales Insurance";
-% } elsif ($item->{toq} eq 66 ) {
-% $toq = "DF Ops";
-% } elsif ($item->{toq} eq 67 ) {
-% $toq = "Sale Insurance";
-% } elsif ($item->{toq} eq 68 ) {
-% $toq = "Finance-SBS-Daiichi";
+% $toq= "DF Ops";
 % } else {
-% $toq = $item->{toq};
+% $toq= $item->{toq};
+% }
+%#--------------------From Queue--------------------------------
+
+% if ($Fq || $Tq) {
+% if ($item->{type} eq 'Create') {
+%# $lockTotal=0;
+% $firstTime = $item->{createTime};
+% $firstDate = $item->{createDate};
+% $firstDay = substr( $firstDate,-2);
+% $firstYear = substr($item->{createDate},0,4);
+% my @spl=split(':',$firstTime);
+% $firstMonth = substr($item->{createDate},5,2);
+% $lockMonth = $firstMonth;
+% my $hr=$spl[0]*3600;
+% my $min=$spl[1]*60;
+% my $sec=$spl[2];
+% $firstTotal=$hr+$min+$sec;
+% $lock=$item->{id};
+% $lockCreateTime = $item->{createTime};
+% $lockCreateDate = $item->{createDate};
+% }        
+
+
+%# if ($fromq eq $Fq) {
+% if (!index($item->{notes},"Queue changed")) {
+
+<tr>
+
+% $lastYear = substr($item->{trsfrDate},0,4);
+% $tranDate = $item->{trsfrDate};
+% $tranDay=substr( $tranDate,-2);
+% $lastTime = $item->{trsfrTime};
+% my @spl=split(':',$lastTime);
+% $lastMonth = substr($item->{trsfrDate},5,2);
+% my $hr=$spl[0]*3600;
+% my $min=$spl[1]*60;
+% my $sec=$spl[2];
+% $lastTotal=$hr+$min+$sec;
+
+
+<!--<td><% $item->{tid} %></td>-->
+<!--<td><% $item->{id} %></td>-->
+
+<!--<td><% $fromq %></td>-->
+
+<!--<td><% $toq %></td>-->
+
+% if($lockCreateTime){
+% $item->{createTime} = $lockCreateTime;
+% $item->{createDate} = $lockCreateDate;
+<!--<td><% $item->{createDate} %></td>-->
+<!--<td><% $item->{createTime} %></td>-->
+% }
+
+<!--<td><% $item->{trsfrDate} %></td>-->
+<!--<td><% $item->{trsfrTime} %></td>-->
+
+
+%#------------------------------------------------------------ Duration -------------------------------------------------
+% if ($firstYear ne $lastYear) {
+% $lastMonth = $lastMonth+12;
+% }
+
+% if ($firstMonth ne $lastMonth) {
+
+% if ($lockTotalTime ne 0) {
+% $totalDay = ($tranDay-$firstDay+(31*($lastMonth-$firstMonth)))*86400;
+% my $total = $lastTotal-$lockTotalTime+$totalDay;  
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+% $duration = $hr.":".$min.":".$sec;
+        <!--<td><% $hr.":".$min.":".$sec %></td>-->
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% } else {
+% $totalDay = ($tranDay-$firstDay+(31*($lastMonth-$firstMonth)))*86400;
+% my $total = ($lastTotal+$totalDay)-$firstTotal;
+
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+% $duration = $hr.":".$min.":".$sec;
+        <!--<td><% $hr.":".$min.":".$sec %></td>-->
+% }    
+
+% } else {
+
+% if ($lockTotalTime ne 0) {
+% $totalDay = ($tranDay-$firstDay)*86400;
+% my $total = $lastTotal-$lockTotalTime+$totalDay;  
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+% $duration = $hr.":".$min.":".$sec;
+        <!--<td><% $hr.":".$min.":".$sec %></td>-->
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% } else {
+% $totalDay = ($tranDay-$firstDay)*86400;
+% my $total = ($lastTotal+$totalDay)-$firstTotal;
+
+% if($item->{id} eq $items[$index]->{id}) {
+% $lockTotalTime = $lastTotal;
+%} else {
+% $lockTotalTime = 0;
+% }
+
+% my $hr = int($total/3600);
+% my $min = ($total/60)%60;
+% my $sec = $total % 60;
+% $duration = $hr.":".$min.":".$sec;
+        <!--<td><% $hr.":".$min.":".$sec %></td>-->
+% } 
+% }
+
+% if ($item->{id} eq $items[$index]->{id}) {
+% $firstTime = $item->{trsfrTime};
+% $firstDate = $item->{trsfrDate};
+% $firstYear = substr($item->{trsfrDate},0,4);
+% $firstDay = substr( $firstDate,-2);
+% my @spl=split(':',$firstTime);
+% $firstMonth = substr($item->{trsfrDate},5,2);
+% $lockMonth = $firstMonth;
+% my $hr=$spl[0]*3600;
+% my $min=$spl[1]*60;
+% my $sec=$spl[2];
+% $firstTotal=$hr+$min+$sec;
+% }
+
+%#-------------------------------------------------------------End-------------------------------------------------------
+
+% #86400sec in a day 
+
+
+<!--<td><% $item->{notes} %></td>-->
+
+
+%# if($item->{type} eq 'Create'){
+<!--<td><% $lockDay %></td>-->
+%# } else {
+<!--<td><% $tranDay %></td>-->
+%# }
+<!--<td><% $firstMonth %></td>-->
+
+% if ($Fq and $Tq) {
+% if ( $fromq eq $Fq and $toq eq $Tq ) {
+<td><% $item->{tid} %></td>
+<td><% $item->{id} %></td>
+<td><% $fromq %></td>
+<td><% $toq %></td>
+<td><% $item->{createDate} %></td>
+<td><% $item->{createTime} %></td>
+<td><% $item->{trsfrDate} %></td>
+<td><% $item->{trsfrTime} %></td>
+<td><% $duration %></td>
+<td><% $item->{notes} %></td>
+% }
+% } elsif ($fromq eq $Fq || $toq eq $Tq) {
+<td><% $item->{tid} %></td>
+<td><% $item->{id} %></td>
+<td><% $fromq %></td>
+<td><% $toq %></td>
+<td><% $item->{createDate} %></td>
+<td><% $item->{createTime} %></td>
+<td><% $item->{trsfrDate} %></td>
+<td><% $item->{trsfrTime} %></td>
+<td><% $duration %></td>
+<td><% $item->{notes} %></td>
 % }
 
 
-% if ($id) {                                                                                                    # Search By Id
+
+
+
+
+
+
+</tr>
+%# }
+
+%#--------------------End From Queue-----------------------------
+% }
+% $index++;
+% } elsif ($id) {                                                                                                    # Search By Id
 % if ($item->{id} eq $id) {
 %#----------------------------------------------------------------------------------------------------------------
 % $index=0;
@@ -580,6 +644,7 @@
 <td><% $item->{notes} %></td>
 
 
+
 %# if($item->{type} eq 'Create'){
 <!--<td><% $lockDay %></td>-->
 %# } else {
@@ -592,6 +657,9 @@
 % $index++;
 % }
 % }
+%#----------------------------------------------------------------------------------------------End of Id & Date---------------------------------------------------------
+
+
 </table>
 
 
@@ -601,6 +669,7 @@
 $id => ''
 $ReportType => ''
 $Fq => ''
+$Tq => ''
 $query => ''
 $start => "2005/01/01"
 $end   => "2006/01/01"

@@ -1,11 +1,12 @@
 <%args>
 $Id => ''
 $Fq => ''
+$Tq => ''
 $ReportType => ''
 $Start => undef
 $End   => undef
 $Query => ''
 $Actor => undef
 </%args>
-<& '/Reports/Activity/Elements/'.$ReportType, id => $Id , Fq => $Fq , start => $Start, end => $End, query => $Query, actor => $Actor, ReportType => $ReportType &>
+<& '/Reports/Activity/Elements/'.$ReportType, id => $Id , Fq => $Fq , Tq => $Tq , start => $Start, end => $End, query => $Query, actor => $Actor, ReportType => $ReportType &>
 
