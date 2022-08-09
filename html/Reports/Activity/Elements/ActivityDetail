@@ -46,148 +46,292 @@
 %#------------------------------------------------------------id & Date------------------------------------
 % for my $item (@items) {
 
-% if($item->{fromq} eq 14 ) {
-% $fromq = "CS-Viber";
-% } elsif ($item->{fromq} eq 1 ) {
+% if($item->{fromq} eq 1 ) {
 % $fromq = "General";
+% } elsif ($item->{fromq} eq 69 ) {
+% $fromq = "MNet Billing-Daiichi";
+% } elsif ($item->{fromq} eq 3 ) {
+% $fromq = "Incidents";
+% } elsif ($item->{fromq} eq 4 ) {
+% $fromq = "Incident Reports";
 % } elsif ($item->{fromq} eq 5 ) {
-% $fromq = "Admin";
+% $fromq = "Investigations";
 % } elsif ($item->{fromq} eq 6 ) {
-% $fromq = "BC-SbS";
+% $fromq = "Countermeasures";
 % } elsif ($item->{fromq} eq 7 ) {
-% $fromq = "Commander-DIA";
+% $fromq = "Admin";
 % } elsif ($item->{fromq} eq 8 ) {
-% $fromq = "Commander-SbS";
+% $fromq = "BC-SbS";
 % } elsif ($item->{fromq} eq 9 ) {
-% $fromq = "CPEOps";
+% $fromq = "Commander-DIA";
 % } elsif ($item->{fromq} eq 10 ) {
-% $fromq = "CPE-SbS";
+% $fromq = "Commander-SbS";
 % } elsif ($item->{fromq} eq 11 ) {
-% $fromq = "CS-Bz";
+% $fromq = "CPEOps";
 % } elsif ($item->{fromq} eq 12 ) {
-% $fromq = "CS-SbS (Inbound)";
+% $fromq = "CPE-SbS";
 % } elsif ($item->{fromq} eq 13 ) {
-% $fromq = "CS-SbS-Finance";
+% $fromq = "CS-Bz";
 % } elsif ($item->{fromq} eq 14 ) {
-% $fromq = "CS-Viber";
+% $fromq = "CS-SbS (Inbound)";
 % } elsif ($item->{fromq} eq 15 ) {
-% $fromq = "Customer Support";
+% $fromq = "CS-SbS-Finance";
 % } elsif ($item->{fromq} eq 16 ) {
-% $fromq = "DevOps";
+% $fromq = "CS-Viber";
 % } elsif ($item->{fromq} eq 17 ) {
-% $fromq = "DIA Finance";
+% $fromq = "Customer Support";
 % } elsif ($item->{fromq} eq 18 ) {
-% $fromq = "Enterprise IT";
+% $fromq = "DevOps";
 % } elsif ($item->{fromq} eq 19 ) {
-% $fromq = "ERP Support";
+% $fromq = "DIA Finance";
 % } elsif ($item->{fromq} eq 20 ) {
-% $fromq = "FiberImpl";
+% $fromq = "Enterprise IT";
 % } elsif ($item->{fromq} eq 21 ) {
-% $fromq = "FiberOps";
+% $fromq = "ERP Support";
 % } elsif ($item->{fromq} eq 22 ) {
-% $fromq = "FIberW";
+% $fromq = "FiberImpl";
 % } elsif ($item->{fromq} eq 23 ) {
-% $fromq = "FiberWOps";
+% $fromq = "FiberOps";
 % } elsif ($item->{fromq} eq 24 ) {
-% $fromq = "FieldOps-Infra";
+% $fromq = "FiberW";
 % } elsif ($item->{fromq} eq 25 ) {
-% $fromq = "FieldOps-SbS";
+% $fromq = "FiberWOps";
 % } elsif ($item->{fromq} eq 26 ) {
-% $fromq = "Finance-Ops";
+% $fromq = "FieldOps-Infra";
 % } elsif ($item->{fromq} eq 27 ) {
-% $fromq = "FTTx-Ops";
+% $fromq = "FieldOps-SbS";
 % } elsif ($item->{fromq} eq 28 ) {
-% $fromq = "LANOps";
+% $fromq = "Finance-Ops";
 % } elsif ($item->{fromq} eq 29 ) {
-% $fromq = "Network Operation Center";
+% $fromq = "FTTx-Ops";
 % } elsif ($item->{fromq} eq 30 ) {
-% $fromq = "Network Planning";
+% $fromq = "Infra Provision Team";
 % } elsif ($item->{fromq} eq 31 ) {
-% $fromq = "NOC-SbS";
+% $fromq = "ISP App";
 % } elsif ($item->{fromq} eq 32 ) {
-% $fromq = "QC-Wireless";
+% $fromq = "ISP Portal";
 % } elsif ($item->{fromq} eq 33 ) {
-% $fromq = "Store-SbS";
+% $fromq = "ISP Tvie";
 % } elsif ($item->{fromq} eq 34 ) {
-% $fromq = "Dev Team";
+% $fromq = "ISP Wallet";
 % } elsif ($item->{fromq} eq 35 ) {
-% $fromq = "Sales Insurance";
+% $fromq = "IT Support";
 % } elsif ($item->{fromq} eq 36 ) {
+% $fromq = "LANOps";
+% } elsif ($item->{fromq} eq 37 ) {
+% $fromq = "LDAP";
+% } elsif ($item->{fromq} eq 38 ) {
+% $fromq = "Level2-SbS-Commander";
+% } elsif ($item->{fromq} eq 39 ) {
+% $fromq = "FieldOps-MDY";
+% } elsif ($item->{fromq} eq 40 ) {
+% $fromq = "MnEOps-Infra";
+% } elsif ($item->{fromq} eq 41 ) {
+% $fromq = "MnEOps-SbS";
+% } elsif ($item->{fromq} eq 42 ) {
+% $fromq = "MNet Billing";
+% } elsif ($item->{fromq} eq 43 ) {
+% $fromq = "Network Operation Center";
+% } elsif ($item->{fromq} eq 44 ) {
+% $fromq = "Network Planning";
+% } elsif ($item->{fromq} eq 45 ) {
+% $fromq = "NOC-SbS";
+% } elsif ($item->{fromq} eq 46 ) {
+% $fromq = "OPI Implementation";
+% } elsif ($item->{fromq} eq 47 ) {
+% $fromq = "Order Processing";
+% } elsif ($item->{fromq} eq 48 ) {
+% $fromq = "Planning-SbS";
+% } elsif ($item->{fromq} eq 49 ) {
+% $fromq = "PMOps";
+% } elsif ($item->{fromq} eq 50 ) {
+% $fromq = "QC-Wireless";
+% } elsif ($item->{fromq} eq 51 ) {
+% $fromq = "Reseller-SbS";
+% } elsif ($item->{fromq} eq 52 ) {
+% $fromq = "Sales-DIA";
+% } elsif ($item->{fromq} eq 53 ) {
+% $fromq = "Sales-OPI";
+% } elsif ($item->{fromq} eq 54 ) {
+% $fromq = "Sales-SbS";
+% } elsif ($item->{fromq} eq 55 ) {
+% $fromq = "Sales-MN Plus";
+% } elsif ($item->{fromq} eq 56 ) {
+% $fromq = "Sales-Insurance";
+% } elsif ($item->{fromq} eq 57 ) {
+% $fromq = "SbSGov";
+% } elsif ($item->{fromq} eq 58 ) {
+% $fromq = "SbSImpl";
+% } elsif ($item->{fromq} eq 59 ) {
+% $fromq = "SbS-Ticketing";
+% } elsif ($item->{fromq} eq 60 ) {
+% $fromq = "SiteLease";
+% } elsif ($item->{fromq} eq 61 ) {
+% $fromq = "Store-SbS";
+% } elsif ($item->{fromq} eq 62 ) {
+% $fromq = "StrategicGov";
+% } elsif ($item->{fromq} eq 63 ) {
+% $fromq = "Wholesale";
+% } elsif ($item->{fromq} eq 64 ) {
+% $fromq = "Dev Team";
+% } elsif ($item->{fromq} eq 65 ) {
+% $fromq = "Sales Insurance";
+% } elsif ($item->{fromq} eq 66 ) {
 % $fromq = "DF Ops";
+% } elsif ($item->{fromq} eq 67 ) {
+% $fromq = "Sale Insurance";
+% } elsif ($item->{fromq} eq 68 ) {
+% $fromq = "Finance-SBS-Daiichi";
 % } else {
 % $fromq = $item->{fromq};
 % }
 
 
-% if($item->{toq} eq 14 ) {
-% $toq= "CS-Viber";
+
+% if($item->{toq} eq 1 ) {
+% $toq = "General";
+% } elsif ($item->{toq} eq 69 ) {
+% $toq = "MNet Billing-Daiichi";
+% } elsif ($item->{toq} eq 3 ) {
+% $toq = "Incidents";
+% } elsif ($item->{toq} eq 4 ) {
+% $toq = "Incident Reports";
 % } elsif ($item->{toq} eq 5 ) {
-% $toq= "Admin";
+% $toq = "Investigations";
 % } elsif ($item->{toq} eq 6 ) {
-% $toq= "BC-SbS";
+% $toq = "Countermeasures";
 % } elsif ($item->{toq} eq 7 ) {
-% $toq= "Commander-DIA";
+% $toq = "Admin";
 % } elsif ($item->{toq} eq 8 ) {
-% $toq= "Commander-SbS";
+% $toq = "BC-SbS";
 % } elsif ($item->{toq} eq 9 ) {
-% $toq= "CPEOps";
+% $toq = "Commander-DIA";
 % } elsif ($item->{toq} eq 10 ) {
-% $toq= "CPE-SbS";
+% $toq = "Commander-SbS";
 % } elsif ($item->{toq} eq 11 ) {
-% $toq= "CS-Bz";
+% $toq = "CPEOps";
 % } elsif ($item->{toq} eq 12 ) {
-% $toq= "CS-SbS (Inbound)";
+% $toq = "CPE-SbS";
 % } elsif ($item->{toq} eq 13 ) {
-% $toq= "CS-SbS-Finance";
+% $toq = "CS-Bz";
 % } elsif ($item->{toq} eq 14 ) {
-% $toq= "CS-Viber";
+% $toq = "CS-SbS (Inbound)";
 % } elsif ($item->{toq} eq 15 ) {
-% $toq= "Customer Support";
+% $toq = "CS-SbS-Finance";
 % } elsif ($item->{toq} eq 16 ) {
-% $toq= "DevOps";
+% $toq = "CS-Viber";
 % } elsif ($item->{toq} eq 17 ) {
-% $toq= "DIA Finance";
+% $toq = "Customer Support";
 % } elsif ($item->{toq} eq 18 ) {
-% $toq= "Enterprise IT";
+% $toq = "DevOps";
 % } elsif ($item->{toq} eq 19 ) {
-% $toq= "ERP Support";
+% $toq = "DIA Finance";
 % } elsif ($item->{toq} eq 20 ) {
-% $toq= "FiberImpl";
+% $toq = "Enterprise IT";
 % } elsif ($item->{toq} eq 21 ) {
-% $toq= "FiberOps";
+% $toq = "ERP Support";
 % } elsif ($item->{toq} eq 22 ) {
-% $toq= "FIberW";
+% $toq = "FiberImpl";
 % } elsif ($item->{toq} eq 23 ) {
-% $toq= "FiberWOps";
+% $toq = "FiberOps";
 % } elsif ($item->{toq} eq 24 ) {
-% $toq= "FieldOps-Infra";
+% $toq = "FiberW";
 % } elsif ($item->{toq} eq 25 ) {
-% $toq= "FieldOps-SbS";
+% $toq = "FiberWOps";
 % } elsif ($item->{toq} eq 26 ) {
-% $toq= "Finance-Ops";
+% $toq = "FieldOps-Infra";
 % } elsif ($item->{toq} eq 27 ) {
-% $toq= "FTTx-Ops";
+% $toq = "FieldOps-SbS";
 % } elsif ($item->{toq} eq 28 ) {
-% $toq= "LANOps";
+% $toq = "Finance-Ops";
 % } elsif ($item->{toq} eq 29 ) {
-% $toq= "Network Operation Center";
+% $toq = "FTTx-Ops";
 % } elsif ($item->{toq} eq 30 ) {
-% $toq= "Network Planning";
+% $toq = "Infra Provision Team";
 % } elsif ($item->{toq} eq 31 ) {
-% $toq= "NOC-SbS";
+% $toq = "ISP App";
 % } elsif ($item->{toq} eq 32 ) {
-% $toq= "QC-Wireless";
+% $toq = "ISP Portal";
 % } elsif ($item->{toq} eq 33 ) {
-% $toq= "Store-SbS";
+% $toq = "ISP Tvie";
 % } elsif ($item->{toq} eq 34 ) {
-% $toq= "Dev Team";
+% $toq = "ISP Wallet";
 % } elsif ($item->{toq} eq 35 ) {
-% $toq= "Sales Insurance";
+% $toq = "IT Support";
 % } elsif ($item->{toq} eq 36 ) {
-% $toq= "DF Ops";
+% $toq = "LANOps";
+% } elsif ($item->{toq} eq 37 ) {
+% $toq = "LDAP";
+% } elsif ($item->{toq} eq 38 ) {
+% $toq = "Level2-SbS-Commander";
+% } elsif ($item->{toq} eq 39 ) {
+% $toq = "FieldOps-MDY";
+% } elsif ($item->{toq} eq 40 ) {
+% $toq = "MnEOps-Infra";
+% } elsif ($item->{toq} eq 41 ) {
+% $toq = "MnEOps-SbS";
+% } elsif ($item->{toq} eq 42 ) {
+% $toq = "MNet Billing";
+% } elsif ($item->{toq} eq 43 ) {
+% $toq = "Network Operation Center";
+% } elsif ($item->{toq} eq 44 ) {
+% $toq = "Network Planning";
+% } elsif ($item->{toq} eq 45 ) {
+% $toq = "NOC-SbS";
+% } elsif ($item->{toq} eq 46 ) {
+% $toq = "OPI Implementation";
+% } elsif ($item->{toq} eq 47 ) {
+% $toq = "Order Processing";
+% } elsif ($item->{toq} eq 48 ) {
+% $toq = "Planning-SbS";
+% } elsif ($item->{toq} eq 49 ) {
+% $toq = "PMOps";
+% } elsif ($item->{toq} eq 50 ) {
+% $toq = "QC-Wireless";
+% } elsif ($item->{toq} eq 51 ) {
+% $toq = "Reseller-SbS";
+% } elsif ($item->{toq} eq 52 ) {
+% $toq = "Sales-DIA";
+% } elsif ($item->{toq} eq 53 ) {
+% $toq = "Sales-OPI";
+% } elsif ($item->{toq} eq 54 ) {
+% $toq = "Sales-SbS";
+% } elsif ($item->{toq} eq 55 ) {
+% $toq = "Sales-MN Plus";
+% } elsif ($item->{toq} eq 56 ) {
+% $toq = "Sales-Insurance";
+% } elsif ($item->{toq} eq 57 ) {
+% $toq = "SbSGov";
+% } elsif ($item->{toq} eq 58 ) {
+% $toq = "SbSImpl";
+% } elsif ($item->{toq} eq 59 ) {
+% $toq = "SbS-Ticketing";
+% } elsif ($item->{toq} eq 60 ) {
+% $toq = "SiteLease";
+% } elsif ($item->{toq} eq 61 ) {
+% $toq = "Store-SbS";
+% } elsif ($item->{toq} eq 62 ) {
+% $toq = "StrategicGov";
+% } elsif ($item->{toq} eq 63 ) {
+% $toq = "Wholesale";
+% } elsif ($item->{toq} eq 64 ) {
+% $toq = "Dev Team";
+% } elsif ($item->{toq} eq 65 ) {
+% $toq = "Sales Insurance";
+% } elsif ($item->{toq} eq 66 ) {
+% $toq = "DF Ops";
+% } elsif ($item->{toq} eq 67 ) {
+% $toq = "Sale Insurance";
+% } elsif ($item->{toq} eq 68 ) {
+% $toq = "Finance-SBS-Daiichi";
 % } else {
-% $toq= $item->{toq};
+% $toq = $item->{toq};
 % }
+
+
+
+
+
 %#--------------------From Queue--------------------------------
 
 % if ($Fq || $Tq) {
