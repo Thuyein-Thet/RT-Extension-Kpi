@@ -154,9 +154,9 @@
     
         <!-- Date -->
         <div class="form-row" style="margin-top:20px;width:24%;height:28px;">
-        <div class="col" ><input type="text" name="Start" value="<% $Start %>" />
+        <div class="col" ><input class="datepicker" name="Start" value="<% $Start %>" />
         </div>
-        <div class="col" ><input type="text" name="End"   value="<% $End   %>" /><br />
+        <div class="col" ><input class="datepicker" name="End"   value="<% $End   %>" /><br />
         </div>
         </div>
     
